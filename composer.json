@@ -1,0 +1,12 @@
+{
+    "minimum-stability": "dev",
+    "require" : {
+        "floxim/floxim" : "*",
+        "floxim/module-blog" : "*",
+        "floxim/module-corporate" : "*",
+        "floxim/module-layout" : "*",
+        "floxim/module-media" : "*",
+        "floxim/module-shop" : "*",
+        "floxim/theme-phototeam" : "*"
+    }
+}

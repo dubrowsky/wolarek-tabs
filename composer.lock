@@ -1,0 +1,454 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "ff1c1da653372b9e70e15c6aa2d437b7",
+    "packages": [
+        {
+            "name": "floxim/cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/floxim-cache.git",
+                "reference": "b024f4d582d6705fe4747d95ee8256b021b62301"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/floxim-cache/zipball/b024f4d582d6705fe4747d95ee8256b021b62301",
+                "reference": "b024f4d582d6705fe4747d95ee8256b021b62301",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Floxim\\Cache\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim Cache Manager",
+            "time": "2015-03-10 16:07:50"
+        },
+        {
+            "name": "floxim/composer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/composer.git",
+                "reference": "2745ac00bb8bd43b77d0f191c8849e6e49d463be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/composer/zipball/2745ac00bb8bd43b77d0f191c8849e6e49d463be",
+                "reference": "2745ac00bb8bd43b77d0f191c8849e6e49d463be",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Floxim\\Composer\\InstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Floxim\\Composer\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Install Floxim modules and themes.",
+            "homepage": "https://github.com/Floxim/floxim-composer",
+            "time": "2015-03-09 11:44:15"
+        },
+        {
+            "name": "floxim/floxim",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/floxim.git",
+                "reference": "abe313ff7261a2f21752692040d2aa4461d5c3b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/floxim/zipball/abe313ff7261a2f21752692040d2aa4461d5c3b7",
+                "reference": "abe313ff7261a2f21752692040d2aa4461d5c3b7",
+                "shasum": ""
+            },
+            "require": {
+                "floxim/cache": "*",
+                "floxim/composer": "*",
+                "floxim/module-form": "*",
+                "floxim/module-main": "*",
+                "floxim/module-nav": "*",
+                "floxim/module-user": "*",
+                "leafo/lessphp": "0.4.0",
+                "linkorb/jsmin-php": "dev-master",
+                "phpmailer/phpmailer": "5.2.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Floxim\\Floxim\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim CMS core",
+            "time": "2015-05-20 10:10:58"
+        },
+        {
+            "name": "floxim/module-blog",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-blog.git",
+                "reference": "6532a064409a504dd586434963e27ccb72d4e409"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-blog/zipball/6532a064409a504dd586434963e27ccb72d4e409",
+                "reference": "6532a064409a504dd586434963e27ccb72d4e409",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim blog/news module.",
+            "time": "2015-03-10 16:41:49"
+        },
+        {
+            "name": "floxim/module-corporate",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-corporate.git",
+                "reference": "67c56cd725945522182846041a0424461e8d4196"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-corporate/zipball/67c56cd725945522182846041a0424461e8d4196",
+                "reference": "67c56cd725945522182846041a0424461e8d4196",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim corporate module.",
+            "time": "2015-03-10 16:44:20"
+        },
+        {
+            "name": "floxim/module-form",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-form.git",
+                "reference": "0dce9ca1587317c6a1931974be08d5105c02b21a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-form/zipball/0dce9ca1587317c6a1931974be08d5105c02b21a",
+                "reference": "0dce9ca1587317c6a1931974be08d5105c02b21a",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim form module.",
+            "time": "2015-05-06 15:58:34"
+        },
+        {
+            "name": "floxim/module-layout",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-layout.git",
+                "reference": "468d95f9b1bac0e48002c0ec8c2dc02243d1c3b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-layout/zipball/468d95f9b1bac0e48002c0ec8c2dc02243d1c3b7",
+                "reference": "468d95f9b1bac0e48002c0ec8c2dc02243d1c3b7",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim layout module.",
+            "time": "2015-03-10 16:42:33"
+        },
+        {
+            "name": "floxim/module-main",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-main.git",
+                "reference": "9a2178d05a70e3fb539d8702b816254e906bd29e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-main/zipball/9a2178d05a70e3fb539d8702b816254e906bd29e",
+                "reference": "9a2178d05a70e3fb539d8702b816254e906bd29e",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim main module.",
+            "time": "2015-05-07 17:49:53"
+        },
+        {
+            "name": "floxim/module-media",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-media.git",
+                "reference": "f77ba9aad09999c2de618891279c632905d5fa9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-media/zipball/f77ba9aad09999c2de618891279c632905d5fa9d",
+                "reference": "f77ba9aad09999c2de618891279c632905d5fa9d",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim media module.",
+            "time": "2015-03-10 16:43:57"
+        },
+        {
+            "name": "floxim/module-nav",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-nav.git",
+                "reference": "871ea76447ca475412f348ee450f2d8d62147a0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-nav/zipball/871ea76447ca475412f348ee450f2d8d62147a0f",
+                "reference": "871ea76447ca475412f348ee450f2d8d62147a0f",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim nav module.",
+            "time": "2015-05-14 16:05:51"
+        },
+        {
+            "name": "floxim/module-shop",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-shop.git",
+                "reference": "c696d84f0af67f63d6403be94ae8fa87feffcc7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-shop/zipball/c696d84f0af67f63d6403be94ae8fa87feffcc7b",
+                "reference": "c696d84f0af67f63d6403be94ae8fa87feffcc7b",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim shop module.",
+            "time": "2015-03-10 16:43:08"
+        },
+        {
+            "name": "floxim/module-user",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/module-user.git",
+                "reference": "5ea8b3aae79d07e3a4c1021c151f5f75adf4d8e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/module-user/zipball/5ea8b3aae79d07e3a4c1021c151f5f75adf4d8e8",
+                "reference": "5ea8b3aae79d07e3a4c1021c151f5f75adf4d8e8",
+                "shasum": ""
+            },
+            "type": "floxim-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Floxim user module.",
+            "time": "2015-03-11 13:00:06"
+        },
+        {
+            "name": "floxim/theme-phototeam",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Floxim/theme-phototeam.git",
+                "reference": "03d9f4b2267f0a8f48fa616aa9f0ccd7d9845547"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Floxim/theme-phototeam/zipball/03d9f4b2267f0a8f48fa616aa9f0ccd7d9845547",
+                "reference": "03d9f4b2267f0a8f48fa616aa9f0ccd7d9845547",
+                "shasum": ""
+            },
+            "type": "floxim-theme",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Phototeam Floxim theme",
+            "time": "2015-05-20 10:35:22"
+        },
+        {
+            "name": "leafo/lessphp",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leafo/lessphp.git",
+                "reference": "51f3f06f0fe78a722dabfd14578444bdd078d9de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leafo/lessphp/zipball/51f3f06f0fe78a722dabfd14578444bdd078d9de",
+                "reference": "51f3f06f0fe78a722dabfd14578444bdd078d9de",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                }
+            ],
+            "description": "lessphp is a compiler for LESS written in PHP.",
+            "homepage": "http://leafo.net/lessphp/",
+            "time": "2013-08-09 17:09:19"
+        },
+        {
+            "name": "linkorb/jsmin-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/linkorb/jsmin-php.git",
+                "reference": "c598ed59809eb91f2decb00d8ed37b307e1a52b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/linkorb/jsmin-php/zipball/c598ed59809eb91f2decb00d8ed37b307e1a52b0",
+                "reference": "c598ed59809eb91f2decb00d8ed37b307e1a52b0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joost Faassen",
+                    "email": "j.faassen@linkorb.com",
+                    "role": "Packaging for composer"
+                },
+                {
+                    "name": "Douglas Crockford",
+                    "email": "douglas@crockford.com"
+                },
+                {
+                    "name": "Ryan Grove",
+                    "email": "ryan@wonko.com",
+                    "role": "PHP port"
+                },
+                {
+                    "name": "Adam Gofort",
+                    "email": "aag@adamgoforth.com",
+                    "role": "Updates to the PHP port"
+                }
+            ],
+            "description": "Unofficial package of jsmin-php",
+            "homepage": "http://www.github.com/linkorb/jsmin-php",
+            "keywords": [
+                "javascript",
+                "jsmin",
+                "minify"
+            ],
+            "time": "2014-03-04 21:29:41"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v5.2.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "d3802c597bff8f6c2ccfa3eab2a511aa01b8d68f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/d3802c597bff8f6c2ccfa3eab2a511aa01b8d68f",
+                "reference": "d3802c597bff8f6c2ccfa3eab2a511aa01b8d68f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.pop3.php",
+                    "class.smtp.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2014-05-14 07:04:18"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
+}

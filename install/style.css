@@ -1,0 +1,108 @@
+.valid {
+	margin-top: 12px;
+	margin-left: 10px;
+	position: absolute;
+	font-size: 13pt;
+}
+body {
+	font-family: 'Segoe UI', SegoeWP, Arial, Helvetica, Verdana;
+	background-color: white;
+	margin: 0;
+}
+a {
+    color: #1A87C2;
+}
+.clear {
+	clear: both;
+}
+.hidden {
+	display: none;
+}
+.main {
+	position: relative;
+	top: 50px;
+	width: 740px;
+	display: block;
+	left: auto;
+	right: auto;
+	background-color: white;
+	color: #444;
+	font-size: 12pt;
+	margin: 0 auto;
+	padding: 30pt;
+    border: 2px solid #3FB7DF;
+}
+.title {
+	font-size: 30pt;
+	margin-bottom: 20px;
+	float: left;
+}
+.logo {
+	float: right;
+}
+.logo > img {
+	margin-top: -25px;
+}
+#submit_button {
+	font-size: 12pt;
+	margin: 20pt 0 0 0;
+	padding: 8px 15px;
+	background-color: #3FB7DF;
+	color: white;
+	text-align: center;
+	font-family: 'Segoe UI', SegoeWP, Arial;
+	cursor: pointer;
+	text-transform: lowercase;
+	border: none;
+}
+.db {
+	padding: 18pt 0;
+}
+.db .cell {
+	float: left;
+	padding: 0 10pt 0 0;
+}
+.db .item {
+	font-size: 10pt;
+	font-weight: 700;
+}
+.db input {
+	font-size: 14pt;
+	width: 100pt;
+	margin: 5pt 0 0;
+	padding: 2pt 0;
+}
+#db_status {
+  display: block;
+  margin: 32px 0 -37px;
+}
+.pwd_create > div {
+	margin: 10pt 0;
+}
+#pwd_gen {
+	color: #3FB7DF;
+	cursor: pointer;
+	border-bottom: 1pt dashed;
+	font-size: 10pt;
+	margin-left: 20pt;
+}
+#pwd_show {
+	margin: 5pt 5pt 0 10pt;
+}
+.layout {
+	float: left;
+	margin-top: 10pt;
+	text-align: center;
+}
+ul {
+	padding-top: 20pt;
+	margin: 0;
+}
+.email_form {
+	margin-bottom: 20pt;
+}
+#pwd_field, #email_field {
+	font-size: 14pt;
+	width: 265pt;
+	margin: 5pt 0 0;
+}
