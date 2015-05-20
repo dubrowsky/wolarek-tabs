@@ -1,4 +1,6 @@
 {
+    "name" : "floxim/site-phototeam",
+    "description" : "Floxim Phototeam demo site",
     "minimum-stability": "dev",
     "require" : {
         "floxim/floxim" : "*",
