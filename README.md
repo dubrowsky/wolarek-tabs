@@ -1,2 +1,2 @@
-# site-phototeam
-Floxim Phototeam demosite
+# wolarek-tabs
+Tiny demo

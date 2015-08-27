@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 20 2015 г., 19:39
+-- Время создания: Авг 27 2015 г., 13:11
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.5.19
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `phototeam_loc`
+-- База данных: `wolarek_loc`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `fx_component` (
   `vendor` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Class_Group` (`group`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=100 AUTO_INCREMENT=84 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=100 AUTO_INCREMENT=88 ;
 
 --
 -- Дамп данных таблицы `fx_component`
@@ -70,7 +70,8 @@ INSERT INTO `fx_component` (`id`, `keyword`, `name_en`, `description_en`, `group
 (80, 'floxim.main.message_template', 'Message template', NULL, 'Main', '', NULL, 36, 'Message template', 'Шаблоны сообщений', 'Шаблон сообщения', '', ''),
 (81, 'floxim.main.mail_template', 'Mail template', NULL, 'Main', '', NULL, 80, 'Mail template', 'Почтовые шаблоны', 'Почтовый шаблон', '', ''),
 (82, 'floxim.nav.external_link', 'External link', NULL, 'Main', '', NULL, 24, NULL, 'Ссылка', NULL, NULL, ''),
-(83, 'floxim.nav.page_alias', 'Page alias', NULL, 'Main', '', NULL, 24, NULL, 'Ярлык', NULL, NULL, '');
+(83, 'floxim.nav.page_alias', 'Page alias', NULL, 'Main', '', NULL, 24, NULL, 'Ярлык', NULL, NULL, ''),
+(87, 'my.shop.product', 'My Product', NULL, 'Main', '', NULL, 75, NULL, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `fx_field` (
   KEY `component_id` (`component_id`),
   KEY `TypeOfData_ID` (`type`),
   KEY `TypeOfEdit_ID` (`type_of_edit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=95 AUTO_INCREMENT=324 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=95 AUTO_INCREMENT=325 ;
 
 --
 -- Дамп данных таблицы `fx_field`
@@ -202,7 +203,8 @@ INSERT INTO `fx_field` (`id`, `component_id`, `keyword`, `name_en`, `name_ru`, `
 (320, 36, 'is_published', 'Is published?', 'Опубликовано?', 5, 'null', 0, 267, 0, '1', 1, 1, 0),
 (321, 36, 'is_branch_published', 'Is branch published?', 'Ветка опубликована?', 5, 'null', 0, 268, 0, '1', 3, 1, 0),
 (322, 82, 'external_url', 'URL', '', 1, 'null', 0, 269, 0, '', 1, 1, 0),
-(323, 83, 'linked_page_id', 'Linked page', '', 13, '{"target":"23","prop_name":"linked_page","is_parent":"0","render_type":"livesearch"}', 0, 270, 0, '', 1, 1, 0);
+(323, 83, 'linked_page_id', 'Linked page', '', 13, '{"target":"23","prop_name":"linked_page","is_parent":"0","render_type":"livesearch"}', 0, 270, 0, '', 1, 1, 0),
+(324, 36, 'type', 'Type', 'Тип', 1, '', 0, 0, 1, NULL, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -230,16 +232,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_blog_news` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `fx_floxim_blog_news`
---
-
-INSERT INTO `fx_floxim_blog_news` (`id`) VALUES
-(2678),
-(2679),
-(2680),
-(2681);
-
 -- --------------------------------------------------------
 
 --
@@ -254,16 +246,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_blog_publication` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `fx_floxim_blog_publication`
---
-
-INSERT INTO `fx_floxim_blog_publication` (`id`, `publish_date`, `image`, `text`) VALUES
-(2678, '2015-04-01 15:30:00', '/floxim_files/content/18/floxim.blog.publication/image/2a_0.jpg', '<p>\r\n	We say goodbye to our old studio.\r\n</p><p>\r\n		The new one is almost ready for us to move in.\r\n</p><p>\r\n		It''s bigger, lighter, and there is a small garden to throw a studio-warming party.\r\n</p>'),
-(2679, '2013-01-13 13:37:00', '/floxim_files/content/18/floxim.blog.publication/image/5_city_6_0.jpg', 'Guys didn’t win this time but we’ll be back next year.\r\n<br>\r\n\r\n	   For now, have Nika and her crazy hair having fun in Russia.\r\n<br>'),
-(2680, '2014-02-12 15:19:29', '/floxim_files/content/18/floxim.blog.publication/image/2v_10_0.jpg', '<p>\n	We are back from Sheregesh, a\n	<span style="line-height: 26.3999996185303px;" rel="line-height: 26.3999996185303px;">small village in Syberia.</span>\n</p>\n<p>\n		The place is perfect for free ride and Russian snow is the fluffiest.\n</p>'),
-(2681, '2015-02-13 15:23:00', '/floxim_files/content/18/floxim.blog.publication/image/5_athlet_5_0.jpg', '<p>\n	We made a photo report about Moscow Athletics Championship.\n</p>\n<p>\n	In other news - Nika lost her voice while cheering for a cute runner.\n</p>');
-
 -- --------------------------------------------------------
 
 --
@@ -276,18 +258,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_corporate_contact` (
   `contact_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `fx_floxim_corporate_contact`
---
-
-INSERT INTO `fx_floxim_corporate_contact` (`id`, `value`, `contact_type`) VALUES
-(2814, '505349', 'icq'),
-(2818, 'nika.superphoto', 'skype'),
-(2819, 'nika@phototeam.loc', 'e-mail'),
-(2820, 'http://nikalightman.com', 'blog'),
-(2854, 'leila-new-skype', 'skype'),
-(2882, 'http://blog.com/', 'blog');
 
 -- --------------------------------------------------------
 
@@ -305,16 +275,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_corporate_person` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `fx_floxim_corporate_person`
---
-
-INSERT INTO `fx_floxim_corporate_person` (`id`, `full_name`, `department`, `photo`, `short_description`, `birthday`) VALUES
-(2671, 'Ken Cold', '', '/floxim_files/content/18/floxim.corporate.person/photo/3b_3_0.jpg', 'romantics’ ideal', '1946-01-09 00:00:00'),
-(2673, 'Leila Stoparsson', '', '/floxim_files/content/18/floxim.corporate.person/photo/3a_2_0.JPG', 'the sense of the place', '1962-02-28 00:00:00'),
-(2675, 'Nika Lightman', '', '/floxim_files/content/18/floxim.corporate.person/photo/2b_0.JPG', 'cool portraits', '1986-02-13 00:00:00'),
-(2735, 'Sonya Zoomer', 'Client support', '/floxim_files/content/18/floxim.corporate.person/photo/3g_2_0.JPG', '“she sits motionless, like a spider”', '1975-11-13 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -329,16 +289,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_corporate_project` (
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `fx_floxim_corporate_project`
---
-
-INSERT INTO `fx_floxim_corporate_project` (`id`, `image`, `client`, `short_description`, `date`) VALUES
-(2688, '/floxim_files/content/18/floxim.corporate.project/image/6_Carnival_of_miners_7_0.jpg', '', 'The carnival of Potosi in Bolivia is the traditional feast of miners who live and work in one of the highest mines in the world.', '2014-01-09 00:00:00'),
-(2690, '/floxim_files/content/18/floxim.corporate.project/image/6_cockfights_3_0.JPG', '', 'A cockfight is a blood sport between two gamecocks, held in a ring called a cockpit.', '2014-01-16 00:00:00'),
-(2751, '/floxim_files/content/18/floxim.corporate.project/image/6_kupala_7_0.jpg', '', 'Kupala Night, also known as Ivan Kupala Day (Feast of St. John the Baptist) is celebrated in Ukraine, Belarus and Russia currently on the night of 6/7 July in the Gregorian calendar.', NULL),
-(2757, '/floxim_files/content/18/floxim.corporate.project/image/6_pascua_toro_3_0.jpg', '', 'Pascua Toro (Bull Easter) is the traditional holiday of the inhabitants of the Peruvian town of Ayacucho.', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -357,14 +307,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_corporate_vacancy` (
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `fx_floxim_corporate_vacancy`
---
-
-INSERT INTO `fx_floxim_corporate_vacancy` (`id`, `salary_from`, `salary_to`, `requirements`, `responsibilities`, `work_conditions`, `currency`, `image`) VALUES
-(2677, 0, 0, '<ul><li class="">Knowlede of QuarkXPress, Illustrator plus the standard Adobe Photoshop, Dreamweaver and Microsoft programs;</li><li class="">Professional experience of at least three years;</li><li class="">Creativity, energy and enthusiasm;</li><li class="">Language skills in both Russian and English.</li></ul>', '<ul>\r\n	\r\n<li><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">assisting with the production of presentations;</span></li>	\r\n<li><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;"></span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">organising digital photography;</span></li>	\r\n<li><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;"></span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">drawing graphs and diagrams in Illustrator;</span></li>	\r\n<li><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">u</span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">pdating photo libraries.</span></li></ul>', '<p>\r\n	  We are working on our first photo album and need someone with experience of <span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">making up a page.</span></p><p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">If you are good we’ll love you to bits.</span></p>', '$', '/floxim_files/content/18/floxim.corporate.vacancy/image/4SPS_0.jpg'),
-(2737, 0, 0, '<p class="">\n	 Walk, ride bicycles, drive vehicles, or use public conveyances in order to <span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" class="">reach destinations to deliver our newspaper</span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" class="">.</span></p>', '<ul>\r\n	<li>Receive the newspapers or the materials for our clients to be delivered, <span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">and information on recipients, such as names, addresses, telephone </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">numbers, and delivery instructions, communicated via telephone, two-</span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">way radio, or in person;</span></li>\r\n	<li><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">Plan and follow the most efficient routes for delivering our precious </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">newpaper;</span></li>\r\n	<li><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;"></span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">Obtain signatures and payments, or arrange for recipients to make </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">payments.</span></li>\r\n</ul>', '', '$', '/floxim_files/content/18/floxim.corporate.vacancy/image/5_birthday_1_0.JPG');
 
 -- --------------------------------------------------------
 
@@ -388,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_main_content` (
   `is_branch_published` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `materialized_path` (`materialized_path`,`level`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=47 AUTO_INCREMENT=3077 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=47 AUTO_INCREMENT=3089 ;
 
 --
 -- Дамп данных таблицы `fx_floxim_main_content`
@@ -398,97 +340,19 @@ INSERT INTO `fx_floxim_main_content` (`id`, `priority`, `created`, `last_updated
 (2367, 135, '2013-10-21 15:21:23', '2015-02-06 13:34:32', NULL, 'floxim.user.user', 0, NULL, NULL, '', 0, 1, 1),
 (2635, 216, '2014-01-28 11:39:50', '2014-12-08 02:18:47', 2367, 'floxim.main.page', 0, 18, NULL, '', 0, 1, 1),
 (2636, 218, '2014-01-28 11:39:50', '2015-01-23 15:50:55', 2367, 'floxim.main.page', 0, 18, 2635, '2635.', 1, 1, 1),
-(2638, 1, '2014-01-28 12:04:17', '2015-04-25 13:11:26', 2367, 'floxim.nav.section', 346, 18, 2635, '2635.', 1, 1, 1),
-(2639, 2, '2014-01-28 12:04:33', '2015-04-25 13:11:26', 2367, 'floxim.nav.section', 346, 18, 2635, '2635.', 1, 1, 1),
-(2640, 4, '2014-01-28 12:07:04', '2015-05-12 17:04:37', 2367, 'floxim.nav.section', 346, 18, 2635, '2635.', 1, 1, 1),
-(2641, 2, '2014-01-28 12:07:17', '2015-01-27 06:16:24', 2367, 'floxim.nav.section', 346, 18, 2640, '2635.2640.', 2, 1, 1),
-(2652, 1, '2014-01-30 13:34:21', '2015-04-23 09:28:40', 2367, 'floxim.nav.section', 346, 18, 2638, '2635.2638.', 2, 1, 1),
-(2654, 2, '2014-01-30 13:34:34', '2015-04-23 09:28:40', 2367, 'floxim.nav.section', 346, 18, 2638, '2635.2638.', 2, 1, 1),
-(2655, 1, '2014-01-30 13:38:14', '2015-01-23 14:08:54', 2367, 'floxim.nav.section', 346, 18, 2640, '2635.2640.', 2, 1, 1),
-(2656, 3, '2014-01-30 13:38:26', '2015-01-27 06:16:24', 2367, 'floxim.nav.section', 346, 18, 2640, '2635.2640.', 2, 1, 1),
-(2657, 4, '2014-01-30 13:38:46', '2015-01-22 10:03:28', 2367, 'floxim.nav.section', 346, 18, 2640, '2635.2640.', 2, 1, 1),
-(2658, 4, '2014-01-30 14:00:50', '2015-04-23 09:28:40', 2367, 'floxim.nav.section', 346, 18, 2638, '2635.2638.', 2, 1, 1),
-(2659, 2, '2014-01-30 14:07:10', '2015-04-23 09:28:40', 2367, 'floxim.main.linker', 362, 18, 2638, '2635.2638.', 2, 1, 1),
-(2660, 230, '2014-01-30 14:38:47', '2015-05-08 14:38:30', 2367, 'floxim.shop.product', 364, 18, 2652, '2635.2638.2652.', 3, 1, 1),
-(2661, 231, '2014-01-30 14:40:14', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2652, '2635.2638.2652.', 3, 1, 1),
-(2662, 232, '2014-01-30 14:42:35', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2652, '2635.2638.2652.', 3, 1, 1),
-(2671, 5, '2014-02-13 15:14:27', '2015-05-06 14:38:13', 2367, 'floxim.corporate.person', 372, 18, 2655, '2635.2640.2655.', 3, 1, 1),
-(2673, 3, '2014-01-30 15:19:09', '2015-05-06 14:37:40', 2367, 'floxim.corporate.person', 372, 18, 2655, '2635.2640.2655.', 3, 1, 1),
-(2675, 2, '2014-01-30 15:19:48', '2015-05-06 14:37:40', 2367, 'floxim.corporate.person', 372, 18, 2655, '2635.2640.2655.', 3, 1, 1),
-(2677, 15, '2014-01-30 15:33:49', '2014-12-08 02:18:47', 2367, 'floxim.corporate.vacancy', 374, 18, 2656, '2635.2640.2656.', 3, 1, 1),
-(2678, 237, '2014-01-30 15:37:21', '2014-12-08 02:18:47', 2367, 'floxim.blog.news', 379, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2679, 238, '2014-01-30 15:38:00', '2014-12-08 02:18:47', 2367, 'floxim.blog.news', 379, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2680, 239, '2014-01-30 15:39:49', '2014-12-08 02:18:47', 2367, 'floxim.blog.news', 379, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2681, 241, '2014-01-30 15:40:08', '2015-05-08 11:59:10', 2367, 'floxim.blog.news', 379, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2688, 4, '2014-01-30 16:20:08', '2015-04-19 23:46:03', 2367, 'floxim.corporate.project', 385, 18, 2639, '2635.2639.', 2, 1, 1),
-(2690, 1, '2014-01-30 16:25:46', '2015-02-17 11:20:44', 2367, 'floxim.corporate.project', 385, 18, 2639, '2635.2639.', 2, 1, 1),
-(2692, 1, '2014-01-31 18:14:59', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2688, '2635.2639.2688.', 3, 1, 1),
-(2693, 3, '2014-01-31 18:16:05', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2688, '2635.2639.2688.', 3, 1, 1),
-(2694, 0, '2014-01-31 18:27:50', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 391, 18, 2640, '2635.2640.', 2, 1, 1),
-(2701, 3, '2014-01-31 19:09:46', '2015-01-16 12:01:01', 2367, 'floxim.main.text', 397, 18, 2641, '2635.2640.2641.', 3, 1, 1),
-(2735, 1, '2014-03-11 16:15:11', '2015-05-06 14:37:40', 2367, 'floxim.corporate.person', 372, 18, 2655, '2635.2640.2655.', 3, 1, 1),
-(2737, 1, '2014-03-11 17:08:49', '2014-12-08 02:18:47', 2367, 'floxim.corporate.vacancy', 374, 18, 2656, '2635.2640.2656.', 3, 1, 1),
-(2739, 266, '2014-03-11 21:44:50', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2652, '2635.2638.2652.', 3, 1, 1),
-(2740, 266, '2014-03-11 21:49:15', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2654, '2635.2638.2654.', 3, 1, 1),
-(2741, 267, '2014-03-11 21:50:58', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2654, '2635.2638.2654.', 3, 1, 1),
-(2742, 4, '2014-03-11 21:56:32', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2658, '2635.2638.2658.', 3, 1, 1),
-(2743, 1, '2014-03-11 21:58:20', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2658, '2635.2638.2658.', 3, 1, 1),
-(2744, 6, '2014-03-11 21:59:51', '2015-04-23 09:28:40', 2367, 'floxim.nav.section', 346, 18, 2638, '2635.2638.', 2, 1, 1),
-(2745, 2, '2014-03-11 22:01:34', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2744, '2635.2638.2744.', 3, 1, 1),
-(2746, 1, '2014-03-11 22:02:45', '2015-04-23 09:28:40', 2367, 'floxim.shop.product', 364, 18, 2744, '2635.2638.2744.', 3, 1, 1),
-(2748, 3, '2014-03-12 05:01:05', '2015-05-13 21:40:13', 2367, 'floxim.main.linker', 370, 18, 2635, '2635.', 1, 1, 1),
-(2749, 0, '2014-03-12 05:02:10', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 369, 18, 2635, '2635.', 1, 1, 1),
-(2750, 2, '2014-03-14 14:09:54', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2688, '2635.2639.2688.', 3, 1, 1),
-(2751, 2, '2014-03-14 18:24:30', '2015-04-19 23:46:03', 2367, 'floxim.corporate.project', 385, 18, 2639, '2635.2639.', 2, 1, 1),
-(2752, 275, '2014-03-14 18:26:57', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2751, '2635.2639.2751.', 3, 1, 1),
-(2753, 276, '2014-03-14 18:27:36', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2751, '2635.2639.2751.', 3, 1, 1),
-(2754, 277, '2014-03-14 18:28:13', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2751, '2635.2639.2751.', 3, 1, 1),
-(2755, 278, '2014-03-14 18:31:09', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2690, '2635.2639.2690.', 3, 1, 1),
-(2756, 279, '2014-03-14 18:31:52', '2015-02-17 08:11:21', 2367, 'floxim.media.photo', 389, 18, 2690, '2635.2639.2690.', 3, 1, 1),
-(2757, 3, '2014-03-14 18:34:09', '2015-04-19 23:46:03', 2367, 'floxim.corporate.project', 385, 18, 2639, '2635.2639.', 2, 1, 1),
 (2762, 284, '2014-05-04 13:43:11', '2015-02-09 00:58:10', 2367, 'floxim.main.mail_template', 0, 18, 0, '.', 1, 1, 1),
-(2765, 0, '2014-05-05 00:44:29', '2015-04-23 20:38:19', 2367, 'floxim.main.linker', 411, 18, 2635, '2635.', 1, 1, 1),
-(2767, 1, '2014-05-06 11:26:33', '2015-01-16 12:01:01', 2367, 'floxim.main.text', 397, 18, 2641, '2635.2640.2641.', 3, 1, 1),
-(2779, 282, '2014-11-05 08:27:32', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2780, 282, '2014-11-05 08:27:32', '2015-05-08 11:59:10', 2367, 'floxim.main.linker', 0, 18, 2681, '2635.2640.2657.2681.', 4, 1, 1),
-(2781, 284, '2014-11-05 08:27:32', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2782, 284, '2014-11-05 08:27:32', '2015-05-08 11:59:10', 2367, 'floxim.main.linker', 0, 18, 2681, '2635.2640.2657.2681.', 4, 1, 1),
-(2783, 286, '2014-11-05 08:27:32', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2785, 287, '2014-11-05 08:28:37', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 0, 18, 2679, '2635.2640.2657.2679.', 4, 1, 1),
-(2786, 288, '2014-11-05 08:28:37', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 0, 18, 2679, '2635.2640.2657.2679.', 4, 1, 1),
-(2787, 290, '2014-11-05 08:28:37', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2788, 290, '2014-11-05 08:28:37', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 0, 18, 2679, '2635.2640.2657.2679.', 4, 1, 1),
-(2789, 292, '2014-11-05 08:29:12', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2790, 7, '2014-11-05 08:29:12', '2015-02-09 17:00:04', 2367, 'floxim.main.linker', 0, 18, 2680, '2635.2640.2657.2680.', 4, 1, 1),
-(2791, 295, '2014-11-05 08:29:12', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2792, 1, '2014-11-05 08:29:12', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 0, 18, 2680, '2635.2640.2657.2680.', 4, 1, 1),
-(2793, 297, '2014-11-05 08:29:12', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2794, 11, '2014-11-05 08:29:12', '2015-02-09 17:00:04', 2367, 'floxim.main.linker', 0, 18, 2680, '2635.2640.2657.2680.', 4, 1, 1),
-(2795, 297, '2014-11-05 08:29:26', '2015-05-08 11:59:10', 2367, 'floxim.main.linker', 0, 18, 2681, '2635.2640.2657.2681.', 4, 1, 1),
-(2796, 300, '2014-11-05 08:30:16', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2797, 301, '2014-11-05 08:30:16', '2015-04-23 17:48:57', 2367, 'floxim.main.linker', 0, 18, 2678, '2635.2640.2657.2678.', 4, 1, 1),
-(2798, 302, '2014-11-05 08:30:16', '2015-01-16 13:06:03', 2367, 'floxim.nav.tag', 0, 18, 2657, '2635.2640.2657.', 3, 1, 1),
-(2799, 304, '2014-11-05 08:30:16', '2015-04-23 17:48:57', 2367, 'floxim.main.linker', 0, 18, 2678, '2635.2640.2657.2678.', 4, 1, 1),
-(2800, 302, '2014-11-05 08:30:45', '2014-12-08 02:18:47', 2367, 'floxim.main.linker', 0, 18, 2679, '2635.2640.2657.2679.', 4, 1, 1),
-(2801, 3, '2014-11-10 04:06:04', '2015-04-23 09:28:40', 2367, 'floxim.main.text', 440, 18, 2652, '2635.2638.2652.', 3, 1, 1),
-(2802, 4, '2014-11-10 04:07:00', '2015-04-23 09:28:40', 2367, 'floxim.main.text', 440, 18, 2652, '2635.2638.2652.', 3, 1, 1),
-(2811, 1, '2015-01-13 08:12:22', '2015-05-13 21:40:13', 2367, 'floxim.main.linker', 370, 18, 2635, '2635.', 1, 1, 1),
-(2812, 2, '2015-01-13 08:12:35', '2015-05-13 21:40:13', 2367, 'floxim.main.linker', 370, 18, 2635, '2635.', 1, 1, 1),
-(2814, 1, '2015-01-13 09:29:44', '2015-04-23 18:22:53', 2367, 'floxim.corporate.contact', 0, 18, 2673, '2635.2640.2655.2673.', 4, 1, 1),
-(2818, 1, '2015-01-13 09:57:06', '2015-01-23 14:08:54', 2367, 'floxim.corporate.contact', 0, 18, 2675, '2635.2640.2655.2675.', 4, 1, 1),
-(2819, 2, '2015-01-13 09:57:06', '2015-01-23 14:08:54', 2367, 'floxim.corporate.contact', 0, 18, 2675, '2635.2640.2655.2675.', 4, 1, 1),
-(2820, 3, '2015-01-13 09:57:06', '2015-01-23 14:08:54', 2367, 'floxim.corporate.contact', 0, 18, 2675, '2635.2640.2655.2675.', 4, 1, 1),
-(2854, 3, '2015-01-15 13:05:08', '2015-01-21 11:48:51', 2367, 'floxim.corporate.contact', 0, 18, 2673, '2635.2640.2655.2673.', 4, 1, 1),
-(2882, 2, '2015-01-21 06:47:34', '2015-04-23 18:22:53', 2367, 'floxim.corporate.contact', 0, 18, 2673, '2635.2640.2655.2673.', 4, 1, 1),
-(3004, 5, '2015-02-09 01:59:09', '2015-02-09 17:00:04', 2367, 'floxim.main.linker', 0, 18, 2680, '2635.2640.2657.2680.', 4, 1, 1),
-(3014, 299, '2015-02-09 08:07:14', '2015-02-09 13:07:14', 2367, 'floxim.main.linker', 0, 18, 2678, '2635.2640.2657.2678.', 4, 1, 1),
-(3030, 2, '2015-02-09 11:57:13', '2015-05-14 13:17:59', 2367, 'floxim.main.linker', 369, 18, 2635, '2635.', 1, 1, 1),
-(3031, 3, '2015-02-09 11:59:11', '2015-02-09 16:59:19', 2367, 'floxim.main.linker', 0, 18, 2680, '2635.2640.2657.2680.', 4, 1, 1),
-(3033, 4, '2015-02-09 12:00:04', '2015-02-09 17:00:04', 2367, 'floxim.main.linker', 0, 18, 2680, '2635.2640.2657.2680.', 4, 1, 1),
-(3060, 304, '2015-02-17 06:50:10', '2015-05-08 11:59:10', 2367, 'floxim.main.linker', 0, 18, 2681, '2635.2640.2657.2681.', 4, 1, 1),
-(3062, 305, '2015-04-17 11:27:14', '2015-04-17 15:27:15', 2367, 'floxim.main.page', 0, 19, NULL, '.', 1, 1, 1),
-(3063, 306, '2015-04-17 11:27:15', '2015-04-17 15:27:15', 2367, 'floxim.main.page', 0, 19, 3062, '.3062.', 2, 1, 1),
-(3071, 0, '2015-05-08 10:33:00', '2015-05-13 21:40:13', 2367, 'floxim.main.linker', 370, 18, 2635, '2635.', 1, 1, 1);
+(3077, 0, '2015-08-26 10:27:39', '2015-08-26 14:27:39', 2367, 'floxim.nav.section', 498, 18, 2635, '2635.', 1, 1, 1),
+(3078, 1, '2015-08-26 10:27:53', '2015-08-26 14:27:53', 2367, 'floxim.nav.section', 498, 18, 2635, '2635.', 1, 1, 1),
+(3079, 2, '2015-08-26 10:28:31', '2015-08-26 14:28:31', 2367, 'floxim.nav.section', 498, 18, 2635, '2635.', 1, 1, 1),
+(3080, 0, '2015-08-26 11:02:07', '2015-08-26 15:03:12', 2367, 'floxim.main.linker', 499, 18, 2635, '2635.', 1, 1, 1),
+(3081, 1, '2015-08-26 11:02:07', '2015-08-26 15:03:12', 2367, 'floxim.main.linker', 499, 18, 2635, '2635.', 1, 1, 1),
+(3082, 2, '2015-08-26 11:02:07', '2015-08-26 15:03:12', 2367, 'floxim.main.linker', 499, 18, 2635, '2635.', 1, 1, 1),
+(3083, 0, '2015-08-26 11:22:58', '2015-08-26 15:22:58', 2367, 'my.shop.product', 501, 18, 3077, '2635.3077.', 2, 1, 1),
+(3084, 1, '2015-08-26 11:23:29', '2015-08-26 15:23:29', 2367, 'my.shop.product', 501, 18, 3077, '2635.3077.', 2, 1, 1),
+(3085, 2, '2015-08-26 11:24:21', '2015-08-26 15:24:21', 2367, 'my.shop.product', 501, 18, 3077, '2635.3077.', 2, 1, 1),
+(3086, 0, '2015-08-26 11:26:18', '2015-08-26 15:26:18', 2367, 'my.shop.product', 501, 18, 3078, '2635.3078.', 2, 1, 1),
+(3087, 1, '2015-08-26 11:26:53', '2015-08-26 15:26:53', 2367, 'my.shop.product', 501, 18, 3078, '2635.3078.', 2, 1, 1),
+(3088, 0, '2015-08-26 11:28:06', '2015-08-26 15:28:06', 2367, 'my.shop.product', 501, 18, 3079, '2635.3079.', 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -507,32 +371,9 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_main_linker` (
 --
 
 INSERT INTO `fx_floxim_main_linker` (`id`, `linked_id`) VALUES
-(2659, 2652),
-(2694, 2656),
-(2748, 2743),
-(2749, 0),
-(2765, 2638),
-(2780, 2779),
-(2782, 2781),
-(2785, 2781),
-(2786, 2783),
-(2788, 2787),
-(2790, 2789),
-(2792, 2791),
-(2794, 2793),
-(2795, 2793),
-(2797, 2796),
-(2799, 2798),
-(2800, 2793),
-(2811, 2662),
-(2812, 2742),
-(3004, 2779),
-(3014, 2781),
-(3030, 2740),
-(3031, 2783),
-(3033, NULL),
-(3060, 2789),
-(3071, 2745);
+(3080, 3078),
+(3081, 3077),
+(3082, 3079);
 
 -- --------------------------------------------------------
 
@@ -601,52 +442,15 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_main_page` (
 INSERT INTO `fx_floxim_main_page` (`id`, `url`, `name`, `title`, `comments_counter`, `description`, `h1`) VALUES
 (2635, '/', 'Home', NULL, 0, NULL, NULL),
 (2636, '/404', 'Page not found', NULL, 0, NULL, NULL),
-(2638, '/Catalog', 'What we do', 'Catalog', 0, NULL, NULL),
-(2639, '/Projects', 'Projects', 'Our projects', 0, NULL, NULL),
-(2640, '/About', 'About us', '', 0, NULL, NULL),
-(2641, '/Contacts', 'Contacts', '', 0, NULL, NULL),
-(2652, '/Sport-series', 'Sport', 'Sport series', 0, NULL, NULL),
-(2654, '/people-photo', 'People', '', 0, NULL, NULL),
-(2655, '/Team', 'Team', 'People', 0, NULL, NULL),
-(2656, '/Vacancies', 'Vacancies', 'Vacancies', 0, NULL, NULL),
-(2657, '/News', 'News', 'News', 0, NULL, NULL),
-(2658, '/Landscapes', 'Landscapes', '', 0, NULL, NULL),
-(2660, '/Football-photo-report', 'Football', '', 0, '<p>\n	Our photographers have been shooting Champion League matches since 2008, the finals of UEFA Euro 2008 and 2012. They are now getting ready for World Cup 2014 in Brazil.\n</p>\n<p>\n	If you want the drama of football match captured by professionals, hire us. We''ve got all the skills, experience, and equipment needed to shot high-quality photo set for you.\n</p>', NULL),
-(2661, '/Skiing', 'Skiing', '', 0, '<p>\r\n	Ken''s speaking:\r\n</p><blockquote>\r\n	I love to shoot winter sports, especially skiing competitions. It''s dynamic, it''s graphic because skis and ski poles give the picture a great rhythm.\r\n</blockquote><blockquote>\r\n	The crowd of skiers looks fantastic on the snow. And scenery is always beautiful. I love winter forest – perhaps that''s my Russian roots talking.\r\n</blockquote><p>\r\n	Ken''s been shooting ski competitions around the world for several years. If you need a winter sports series he is your guy.\r\n</p>', NULL),
-(2662, '/Swimming', 'Swimming', '', 0, '<p>\n	After all the time she spent in pools and seas, our photographer Leila is basically half-human half-dolphin. She knows all the details about shooting in water, and even has a couple of inventions of her own for underwater shooting.\n</p>\n<p>\n	Leila’s speaking:\n</p>\n<blockquote>\n	I love how water changes the light, shapes, and textures of things. It can be very expressive. I’m currently getting ready for European Aquatic Championship. A great photo report’s waiting to be made!\n</blockquote>', NULL),
-(2671, '/Ken-Cold', 'Ken The Cold', '', 0, '<p>\r\n	Ken is romantics’ ideal – serene, sensitive, and a bit shy.</p><p>\r\n	When led into the wild, he blends into the nature to capture it beautifully.</p>', NULL),
-(2673, '/Leila-Stoparsson', 'Leila Stoparsson', '', 0, '<p>\r\n	Leila is the best at shooting interiors.</p><p>\r\n	Her photographs always give you the sense of the place.</p>', NULL),
-(2675, '/Nika-Lightman', 'Nika Lightman', '', 0, '<p>\n	Nika Lightman has a gift to shoot portraits.\n</p>\n<p>\n	We all have pictures of ourselves made by Nika.\n</p>\n<p>\n	Accurate yet flattering!\n</p>', NULL),
-(2677, '/Maker-up', 'Maker up', '', 0, NULL, NULL),
-(2678, '/Redecoration-in-our-new-studio', 'Redecoration in our new studio', '', 0, '<p>\r\n	Last touches, and we are ready to move in!\r\n</p>', NULL),
-(2679, '/Moscow-Streetshot-Contest', 'Moscow Streetshot Contest', '', 0, '<p>\n	Nika''s and Ken''s street series were shortlisted for Moscow Streetshot Contest.\n</p>', NULL),
-(2680, '/Free-ride-proof-pics', 'Free ride proof pics!', '', 0, '<p>\n	The whole team went for free ride. Proof pics!\n</p>', NULL),
-(2681, '/Moscow-Athletics-Championship', 'Moscow Athletics Championship', 'Moscow Athletics Championship', 0, '<p>\r\n	We made some \r\n	<em>great</em> photo series during Moscow Athletics Championship.\r\n</p><p>\r\n	Check \r\n	them out.\r\n</p>', NULL),
-(2688, '/Carnival-of-miners', 'Carnival of minerz', '', 0, '<p>\n	The patron of miners, the Devil, has combined both positive – Indian mythology – and negative – Catholic – roots. The miners attributed their good fortune directly with a grace of the devil, and thank him in their crazy carnival dances.\n</p>\n<p>\n	Leila went to Bolivia after Young Pathfinder offered her to do a series about miners’ life in Sought America. Leila came back with a beautiful photo report.\n</p>', NULL),
-(2690, '/Cockfights', 'Cockfights', '', 0, '<p class="">\n	Cockfighting is a blood sport due in some part to the physical trauma the cocks inflict on each other. Advocates of the "age old sport" often list cultural and religious relevance as reasons for perpetuation of cockfighting as a sport.</p><p class="">\n	Nika disapproves of the whole thing but she went to Cuba to document the fights, the true professional she is.</p>', NULL),
-(2735, '/Sonya-Zoomer', 'Sonya Zoomer', '', 0, '<blockquote>\r\n	 “She is a genius, a philosopher, an abstract thinker. She has a brain of the first order. She sits motionless, like a spider in the center of its web, but that web has a thousand radiations, and she knows well every quiver of each of them. She does little himself. She only plans&hellip;”\r\n</blockquote><p>\r\n	 Meet Sonya, our manager.</p>', NULL),
-(2737, '/Delivery-person', 'Delivery person', '', 0, NULL, NULL),
-(2739, '/Athletics', 'Athletics', '', 0, '<p>\n	Athletics was the first competitions our team’s shot. Since our first series in 2007, we’ve become faster and stronger. Ken’s become bolder.\n</p>\n<p>\n	We are so good at shooting athletics partly because competitive running, jumping, and throwing things is something that happens in our studio daily.\n</p>\n<p>\n	We are fascinated with the sight of passion and human endeavor you see at the stadium during competitions. Sometimes, it’s pure heroism from the athletes. We always do our best to do them justice with our photo series.\n</p>', NULL),
-(2740, '/Portrait', 'Portrait', '', 0, '<p>\r\n	Nika, our portraitist, is super good at catching person''s mood and character.\r\n</p><p>\r\n	She''s inventive in studio photo shoot but is open to client''s suggestions.</p>', NULL),
-(2741, '/Passport-photos', 'Passport photos', '', 0, '<p>\n	You know those passport pictures that are more suited for “Wanted” posters? None of that if you come to our studio.\n</p>\n<p>\n	We do all the necessary formats. We then can do all the necessary editing really quickly. You’ll look respectable and reliable individual – promise!\n</p>', NULL),
-(2742, '/Cities', 'Cities', '', 0, '<p>\n	Ken is a poet of city jungles. He loves city dynamics and lights and noises. He also loves to travel and will be excited to go and shoot the city you want. High-quality pictures and unique view guaranteed.\n</p>\n<p>\n	We are also happy to take orders from city administrations to make a booklet with local sights. Tourists will rush to your city and spend their money around all those attractions.\n</p>', NULL),
-(2743, '/Nature', 'Nature', '', 0, '<p>\n	Ken''s favorite book is Emerson''s Naturalistic Photography. Inspired by the book he later developed his own system of aesthetics that reflect nature in a beautiful and \n	<a href="/Events">unique way</a>.\n</p>\n<p>\n	Ken is armed with all necessary gear and is not afraid of using it. He is very patient – a must-have for a naturalistic artist – and can spend hour in the woods or on the beach waiting for the perfect sunset.\n</p>', NULL),
-(2744, '/Events', 'Events', '', 0, NULL, NULL),
-(2745, '/Birthday-parties', 'Birthday parties', '', 0, '<p>\n	We are ready to shoot the most exotic and extreme birthday parties. We have all the gear to shoot in the swimming pool or on the dance floor. Yes, you can put down your phone for once and enjoy celebrating.\n</p>\n<p>\n	By the way, our team came up with a great device. It includes wide-angle lens and some really technical stuff, like a stick, to make a massive selfie of you and all your party guests. Imagine the joy of tagging them all later on Instagram!\n</p>', NULL),
-(2746, '/Corporate-events', 'Corporate events', '', 0, '<p>\n	We have a long experience in shooting corporate sessions, conferences, parties, and awards ceremonies. Your business rivals will be envious of how great your corporate events look.\n</p>\n<p>\n	With our digital team ready to work around the clock, all images are published on a password protected website within 48 hours.\n</p>', NULL),
-(2751, '/Kupala-Night', 'Kupala Night', '', 0, '<p>\r\n	The fest has pagan roots. According to an ancient pagan belief, on the eve of Ivan Kupala is the only time of the year when ferns bloom. Prosperity, luck and power would befall whoever finds a fern flower. On that night village folks would roam through the forests in search of magical herbs and especially the elusive fern flower.\r\n</p><p>\r\n		Traditionally, unmarried women would be the first to enter the forest. They are followed by young men. In 2010, they were also followed by Ken who made fantastic photo series.\r\n</p>', NULL),
-(2757, '/Bull-Easter', 'Bull Easter', '', 0, '<p>\n	Pascua Toro is celebrated during Holy Saturday.\n</p>\n<p>\n	This holiday is famous for colorful running of the bulls through the streets of the town.\n</p>\n<p>\n	In 2011, our Ken took a huge risk and ran along with bulls. Fortunately, no bulls were harmed.\n</p>', NULL),
-(2779, '/tennis', 'tennis', NULL, 0, NULL, NULL),
-(2781, '/moscow', 'moscow', NULL, 0, NULL, NULL),
-(2783, '/contest', 'contest', NULL, 0, NULL, NULL),
-(2787, '/street-series', 'street series', NULL, 0, NULL, NULL),
-(2789, '/syberia', 'syberia', NULL, 0, NULL, NULL),
-(2791, '/free-ride', 'free ride', NULL, 0, NULL, NULL),
-(2793, '/russia', 'russia', NULL, 0, NULL, NULL),
-(2796, '/studio', 'studio', NULL, 0, NULL, NULL),
-(2798, '/life', 'life', NULL, 0, NULL, NULL),
-(3062, '/', 'Cover Page', NULL, 0, NULL, NULL),
-(3063, '/404', 'Page not found', NULL, 0, NULL, NULL);
+(3077, '/Turntables', 'Turntables', '', 0, '', ''),
+(3078, '/Music-instruments', 'Music instruments', '', 0, '', ''),
+(3079, '/Accessories', 'Accessories', '', 0, '', ''),
+(3083, '/Test-one', 'Test one', '', 0, '', ''),
+(3084, '/Test-two', 'Test two', '', 0, '', ''),
+(3085, '/Test-also', 'Test also', '', 0, '', ''),
+(3086, '/Guitar', 'Guitar', '', 0, '', ''),
+(3087, '/Banjo', 'Banjo', '', 0, '', ''),
+(3088, '/Tuner', 'Tuner', '', 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -659,16 +463,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_main_text` (
   `text` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1199;
-
---
--- Дамп данных таблицы `fx_floxim_main_text`
---
-
-INSERT INTO `fx_floxim_main_text` (`id`, `text`) VALUES
-(2701, '<h4>Also feel free to visit our studio office!</h4>'),
-(2767, '<p>\n	For questions or any information please call or e-mail us:\n</p>\n<ul>\n	<li>8 (800) 123 45 67</li>\n	<li><a href="mailto:info@phototeam.loc">info@phototeam.loc</a></li>\n</ul>'),
-(2801, '<p>\n	We have special conditions for sport series!\n</p>'),
-(2802, '<p>\n	Please \n	<a href="/Contacts">contact us</a> to get more info.\n</p>');
 
 -- --------------------------------------------------------
 
@@ -683,20 +477,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_media_photo` (
   `copy` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `fx_floxim_media_photo`
---
-
-INSERT INTO `fx_floxim_media_photo` (`id`, `photo`, `description`, `copy`) VALUES
-(2692, '/floxim_files/content/18/floxim.media.photo/photo/6_Carnival_of_miners_13_0.jpg', '', ''),
-(2693, '/floxim_files/content/18/floxim.media.photo/photo/6_Carnival_of_miners_15_0.jpg', '', ''),
-(2750, '/floxim_files/content/18/floxim.media.photo/photo/6_Carnival_of_miners_8_0.jpg', '', ''),
-(2752, '/floxim_files/content/18/floxim.media.photo/photo/6_kupala_8_0.JPG', '', ''),
-(2753, '/floxim_files/content/18/floxim.media.photo/photo/6_kupala_1_0.JPG', '', ''),
-(2754, '/floxim_files/content/18/floxim.media.photo/photo/6_kupala_17_0.JPG', '', ''),
-(2755, '/floxim_files/content/18/floxim.media.photo/photo/6_cockfights_5_0.jpg', '', ''),
-(2756, '/floxim_files/content/18/floxim.media.photo/photo/6_cockfights_8_0.JPG', '', '');
 
 -- --------------------------------------------------------
 
@@ -721,21 +501,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_nav_classifier` (
   `id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `fx_floxim_nav_classifier`
---
-
-INSERT INTO `fx_floxim_nav_classifier` (`id`) VALUES
-(2779),
-(2781),
-(2783),
-(2787),
-(2789),
-(2791),
-(2793),
-(2796),
-(2798);
 
 -- --------------------------------------------------------
 
@@ -777,17 +542,9 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_nav_section` (
 --
 
 INSERT INTO `fx_floxim_nav_section` (`id`) VALUES
-(2638),
-(2639),
-(2640),
-(2641),
-(2652),
-(2654),
-(2655),
-(2656),
-(2657),
-(2658),
-(2744);
+(3077),
+(3078),
+(3079);
 
 -- --------------------------------------------------------
 
@@ -799,21 +556,6 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_nav_tag` (
   `id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `fx_floxim_nav_tag`
---
-
-INSERT INTO `fx_floxim_nav_tag` (`id`) VALUES
-(2779),
-(2781),
-(2783),
-(2787),
-(2789),
-(2791),
-(2793),
-(2796),
-(2798);
 
 -- --------------------------------------------------------
 
@@ -834,16 +576,12 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_shop_product` (
 --
 
 INSERT INTO `fx_floxim_shop_product` (`id`, `short_description`, `image`, `price`) VALUES
-(2660, '<p>\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">We capture the emotions of players and fans during the match like no one else.</span>\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_football_4_0.jpg', 1299),
-(2661, '<p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">We are not scary of getting cold on the ski run as we usually run twice as much </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">as the skiers to catch the most interesting moments.</span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_ski_5_0.JPG', 1500),
-(2662, '<p>\r\n	We love to shoot water sports so much that we attend all the events we can –  <span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">from Olympics to school competition in our local pool.</span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;"></span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_birthday_2_0.JPG', 1500),
-(2739, '<p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">“Faster - Higher – Stronger” – our shooting motto.</span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_athlet_2_0.JPG', 1199),
-(2740, '<p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">We shoot portraits with love to subject. Welcome, beautiful client!</span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/3a_1_0.JPG', 800),
-(2741, '<p>\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">High-quality <a href="/Trolo">representation </a>of you for docs and visas.</span>\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_portrait_passport_5_0.JPG', 1000),
-(2742, '<p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">We all are in love with street photography. That’s handy if you need an urban </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">photo series.</span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_city_4_0.jpg', 1200),
-(2743, '<p>\n	 Our photographers teamed up with major naturalistic magazines.\n</p>\n<p>\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">We are so ready to start a new expedition.</span>\n</p>\n<p>\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;" rel="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;"></span>\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_nature_2_0.JPG', 1600),
-(2745, '<p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">We’ll do our best to abstain from drinks and capture you and your friends in </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">the gorgeous way.</span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/5_birthday_9_0.jpg', 200),
-(2746, '<p>\r\n	<span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">Among our clients are the biggest companies in the country. Most of them </span><span style="font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;">keep re-booking our photographers year after year.</span>\r\n</p>', '/floxim_files/content/18/floxim.shop.product/image/1_2_0.JPG', 2900);
+(3083, '', '/floxim_files/content/18/my.shop.product/image/fzgsbm10w_L0.jpg', 155),
+(3084, '', '/floxim_files/content/18/my.shop.product/image/SME-Turntables-London-700x500.jpg', 23),
+(3085, '', '/floxim_files/content/18/my.shop.product/image/sl110decca3kl4.jpg', 1234),
+(3086, '', '/floxim_files/content/18/my.shop.product/image/Partitura-guitarra-1-1.jpg', 323),
+(3087, '', '/floxim_files/content/18/my.shop.product/image/brownsville_01.jpg', 121),
+(3088, '', '/floxim_files/content/18/my.shop.product/image/AROMA_20AT-300B_01-300x300.jpg', 223);
 
 -- --------------------------------------------------------
 
@@ -872,7 +610,7 @@ CREATE TABLE IF NOT EXISTS `fx_floxim_user_user` (
 --
 
 INSERT INTO `fx_floxim_user_user` (`id`, `email`, `login`, `name`, `registration_code`, `avatar`, `forum_messages`, `pa_balance`, `auth_hash`, `is_admin`, `password`) VALUES
-(2367, 'dubr.cola@gmail.com', '', 'Admin', NULL, NULL, 0, 0, '', 1, '20EAfcH0JSFQY');
+(2367, 'test@test.com', '', 'Admin', NULL, NULL, 0, 0, '', 1, '17DwgJKpcR/Ms');
 
 -- --------------------------------------------------------
 
@@ -893,7 +631,7 @@ CREATE TABLE IF NOT EXISTS `fx_infoblock` (
   `scope` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `page_id` (`page_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=210 AUTO_INCREMENT=498 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=210 AUTO_INCREMENT=504 ;
 
 --
 -- Дамп данных таблицы `fx_infoblock`
@@ -901,54 +639,17 @@ CREATE TABLE IF NOT EXISTS `fx_infoblock` (
 
 INSERT INTO `fx_infoblock` (`id`, `parent_infoblock_id`, `site_id`, `page_id`, `checked`, `name`, `controller`, `action`, `params`, `scope`) VALUES
 (345, 0, 18, 2635, 1, '', 'layout', 'show', '[]', '{"pages":"descendants","page_type":""}'),
-(346, 0, 18, 2635, 1, 'Main menu', 'floxim.nav.section', 'list_infoblock', '{"submenu":"all","extra_infoblocks":["385","364"]}', '{"pages":"descendants","page_type":"","visibility":"all"}'),
-(347, 0, 18, 2635, 1, 'Footer nav', 'floxim.nav.section', 'list_filtered', '{"conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2635"]},"new_2":{"name":"infoblock_id","operator":"=","value":["346"]}},"submenu":"none","extra_infoblocks":false}', '{"pages":"descendants","page_type":"","visibility":"all"}'),
-(359, 345, 18, 2638, 1, '', 'layout', 'show', '[]', '{"pages":"this","page_type":""}'),
 (360, 0, 18, 2635, 1, 'Navigation / breadcrumbs', 'floxim.nav.section', 'breadcrumbs', '{"header_only":"0","hide_on_index":"0"}', '{"pages":"children","page_type":"","visibility":"all"}'),
-(361, 0, 18, 2638, 1, 'Navigation / ', 'floxim.nav.section', 'list_filtered', '{"conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2638"]}},"submenu":"none","extra_infoblocks":false}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(362, 0, 18, 2638, 1, 'Featured services', 'floxim.nav.section', 'list_selected', '{"submenu":"none","extra_infoblocks":false}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(364, 0, 18, 2638, 1, 'Products', 'floxim.shop.product', 'list_infoblock', '{"limit":false,"sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id","field_196_infoblock":"346"}', '{"pages":"children","page_type":"floxim.nav.section","visibility":"all"}'),
-(367, 0, 18, 2638, 1, 'Product / Single entry', 'floxim.shop.product', 'record', '[]', '{"pages":"children","page_type":"floxim.shop.product"}'),
-(369, 0, 18, 2635, 1, 'Main offer', 'floxim.shop.product', 'list_selected', '{"sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id"}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(370, 0, 18, 2635, 1, 'Featured products', 'floxim.shop.product', 'list_selected', '{"sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id"}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(372, 0, 18, 2655, 1, 'Persons', 'floxim.corporate.person', 'list_infoblock', '{"limit":false,"sorting":"manual","sorting_dir":"desc","parent_type":"current_page_id"}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(374, 0, 18, 2656, 1, 'Vacancies', 'floxim.corporate.vacancy', 'list_infoblock', '{"limit":"","sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id"}', '{"pages":"this","page_type":""}'),
-(376, 0, 18, 2656, 1, 'Vacancy / Single entry', 'floxim.corporate.vacancy', 'record', '[]', '{"pages":"children","page_type":"floxim.corporate.vacancy"}'),
-(379, 0, 18, 2657, 1, 'News', 'floxim.blog.news', 'list_infoblock', '{"limit":"","sorting":"publish_date","sorting_dir":"desc","parent_type":"current_page_id"}', '{"pages":"this","page_type":""}'),
-(382, 345, 18, 2639, 1, '', 'layout', 'show', '[]', '{"pages":"descendants","page_type":""}'),
-(385, 0, 18, 2639, 1, 'Projects', 'floxim.corporate.project', 'list_infoblock', '{"limit":"","sorting":"manual","sorting_dir":"asc","parent_type":"mount_page_id"}', '{"pages":"descendants","page_type":""}'),
-(386, 0, 18, 2639, 1, 'Project / Single entry', 'floxim.corporate.project', 'record', '[]', '{"pages":"children","page_type":"floxim.corporate.project"}'),
-(388, 0, 18, 2638, 1, 'Navigation / ', 'floxim.nav.section', 'list_filtered', '{"conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2638"]}},"submenu":"none"}', '{"pages":"children","page_type":""}'),
-(389, 0, 18, 2639, 1, 'Project gallery', 'floxim.media.photo', 'list_infoblock', '{"limit":"","sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id"}', '{"pages":"children","page_type":"floxim.corporate.project"}'),
-(390, 345, 18, 2640, 1, '', 'layout', 'show', '[]', '{"pages":"this","page_type":""}'),
-(391, 0, 18, 2640, 1, 'Navigation / ', 'floxim.nav.section', 'list_selected', '{"submenu":"none"}', '{"pages":"this","page_type":""}'),
-(392, 0, 18, 2640, 1, 'Last news', 'floxim.blog.news', 'list_filtered', '{"limit":"4","pagination":"0","sorting":"created","sorting_dir":"desc","conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2657"]}}}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(397, 0, 18, 2641, 1, 'Contacts text', 'floxim.main.text', 'list_infoblock', '{"limit":"","parent_type":"current_page_id"}', '{"pages":"this","page_type":""}'),
-(398, 0, 18, 2657, 1, 'News / Single entry', 'floxim.blog.news', 'record', '[]', '{"pages":"children","page_type":"floxim.blog.news"}'),
 (399, 345, 18, 2635, 1, '', 'layout', 'show', '[]', '{"pages":"this","page_type":""}'),
 (400, 0, 18, 2635, 1, 'What we do', 'floxim.nav.section', 'list_filtered', '{"conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2638"]},"new_2":{"name":"infoblock_id","operator":"=","value":["346"]}},"submenu":"none","extra_infoblocks":false}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(404, 0, 18, 2640, 1, 'All About Us', 'floxim.nav.section', 'list_filtered', '{"conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2640"]},"new_2":{"name":"infoblock_id","operator":"=","value":["346"]}},"submenu":"none","extra_infoblocks":false}', '{"pages":"children","page_type":"","visibility":"all"}'),
-(408, 0, 18, 2635, 1, 'Auth form', 'floxim.user.user', 'auth_form', '[]', '{"pages":"descendants","page_type":"","visibility":"all"}'),
-(409, 0, 18, 2635, 1, 'Greet', 'floxim.user.user', 'greet', '[]', '{"pages":"descendants","page_type":"","visibility":"all"}'),
-(410, 0, 18, 2635, 1, 'Two columns', 'floxim.layout.grid', 'two_columns', '[]', '{"pages":"this","page_type":""}'),
-(411, 0, 18, 2635, 1, 'Featured pages', 'floxim.main.page', 'list_selected', '{"sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id"}', '{"pages":"this","page_type":""}'),
-(412, 0, 18, 2638, 1, 'Product neighbours', 'floxim.shop.product', 'neighbours', '{"sorting":"auto","sorting_dir":"asc","group_by_parent":"1"}', '{"pages":"children","page_type":"floxim.shop.product"}'),
-(413, 0, 18, 2657, 1, 'News neighbours', 'floxim.blog.news', 'neighbours', '{"sorting":"auto","sorting_dir":"asc"}', '{"pages":"children","page_type":"floxim.blog.news"}'),
-(414, 0, 18, 2656, 1, 'Vacancy neighbours', 'floxim.corporate.vacancy', 'neighbours', '[]', '{"pages":"children","page_type":"floxim.corporate.vacancy"}'),
-(416, 0, 18, 2639, 1, 'Project neighbours', 'floxim.corporate.project', 'neighbours', '{"sorting":"auto","sorting_dir":"asc","group_by_parent":"0"}', '{"pages":"children","page_type":"floxim.corporate.project"}'),
-(418, 0, 18, 2655, 1, 'Person record', 'floxim.corporate.person', 'record', '[]', '{"pages":"children","page_type":"floxim.corporate.person"}'),
-(419, 0, 18, 2655, 1, 'Person neighbours', 'floxim.corporate.person', 'neighbours', '{"sorting":"auto","sorting_dir":"asc","group_by_parent":"0"}', '{"pages":"children","page_type":"floxim.corporate.person"}'),
-(422, 0, 18, 2641, 1, 'Map', 'floxim.corporate.map', 'show', '{"map":{"address":"Bolshoy Savvinskiy pereulok, 17, Moscow, Russia","lat":"55.7330887805793","lon":"37.56590033995053"}}', '{"pages":"descendants","page_type":"","visibility":"all"}'),
-(423, 345, 18, 2638, 1, '', 'layout', 'show', '[]', '{"pages":"children","page_type":""}'),
 (431, 0, 18, 2635, 1, 'Text', 'floxim.main.text', 'list_infoblock', '{"parent_type":"current_page_id"}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(435, 0, 18, 2640, 1, 'Person by filter', 'floxim.corporate.person', 'list_filtered', '{"limit":false,"pagination":"0","sorting":"manual","sorting_dir":"desc","conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2655"]},"new_2":{"name":"infoblock_id","operator":"=","value":["372"]}}}', '{"pages":"this","page_type":"","visibility":"all"}'),
-(436, 0, 18, 2657, 1, 'News by tag', 'floxim.blog.news', 'list_by_tag', '{"limit":false,"pagination":"0","sorting":"publish_date","sorting_dir":"desc"}', '{"pages":"children","page_type":"floxim.main.tag","visibility":"all"}'),
-(437, 0, 18, 2657, 1, 'Tags', 'floxim.nav.tag', 'list_filtered', '{"limit":false,"pagination":"0","sorting":"name","sorting_dir":"asc","conditions":{"new_1":{"name":"parent_id","operator":"=","value":["2657"]}}}', '{"pages":"descendants","page_type":"","visibility":"all"}'),
 (439, 0, 18, 2635, 1, 'News by tag', 'floxim.blog.news', 'list_by_tag', '{"limit":false,"pagination":"0","sorting":"publish_date","sorting_dir":"desc"}', '{"pages":"children","page_type":"floxim.nav.tag","visibility":"all"}'),
-(440, 0, 18, 2652, 1, 'Special conditions!', 'floxim.main.text', 'list_infoblock', '{"parent_type":"mount_page_id"}', '{"pages":"descendants","page_type":"","visibility":"all"}'),
 (480, 345, 18, 2635, 1, '', 'layout', 'show', '[]', '{"pages":"children","page_type":"floxim.blog.news"}'),
-(493, 0, 19, 0, 1, 'Layout', 'layout', 'show', '', ''),
-(497, 0, 18, 2635, 1, 'What''s happening', 'floxim.blog.news', 'list_filtered', '{"limit":"4","pagination":"0","sorting":"publish_date","sorting_dir":"desc","conditions":{"new_1":{"name":"parent_id","operator":"="}}}', '{"pages":"this","page_type":"","visibility":"all"}');
+(498, 0, 18, 2635, 1, 'Menu', 'floxim.nav.section', 'list_infoblock', '[]', '{"pages":"descendants","page_type":"","visibility":"null"}'),
+(499, 0, 18, 2635, 1, 'Section selected', 'floxim.nav.section', 'list_selected', '[]', '{"pages":"this","page_type":"","visibility":"null"}'),
+(501, 0, 18, 2635, 1, 'New block with My Product', 'my.shop.product', 'list_infoblock', '{"limit":false,"sorting":"manual","sorting_dir":"asc","parent_type":"current_page_id"}', '{"pages":"children","page_type":"floxim.nav.section","visibility":"null"}'),
+(502, 0, 18, 3077, 1, 'my.shop.product record', 'my.shop.product', 'record', '', '{"pages":"children","page_type":"my.shop.product"}'),
+(503, 0, 18, 2635, 1, '', 'my.shop.product', 'list_by_parent', '{"limit":false,"pagination":"undefined","sorting":"created","sorting_dir":"asc"}', '{"pages":"this","page_type":"","visibility":"null"}');
 
 -- --------------------------------------------------------
 
@@ -968,61 +669,24 @@ CREATE TABLE IF NOT EXISTS `fx_infoblock_visual` (
   `priority` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `infoblock_id` (`infoblock_id`,`layout_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=138 AUTO_INCREMENT=651 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=138 AUTO_INCREMENT=656 ;
 
 --
 -- Дамп данных таблицы `fx_infoblock_visual`
 --
 
 INSERT INTO `fx_infoblock_visual` (`id`, `infoblock_id`, `layout_id`, `wrapper`, `wrapper_visual`, `template`, `template_visual`, `area`, `priority`) VALUES
-(417, 345, 12, '', '', 'theme.floxim.phototeam:two_columns', '{"phone":"8 (800) 123 63 45","logo":"","two_column_header":"\\n                Yes, we can!","one_column_header":"\\n                Our news","logo_name":"Photo Team","icon_408":"\\/floxim_files\\/content\\/18\\/visual\\/icon_login_active.png","icon_409":"\\/floxim_files\\/content\\/18\\/visual\\/icon_login_on.png","email":"info@phototeam.loc"}', '', 1),
-(418, 346, 12, '', '', 'theme.floxim.phototeam:main_menu', '', 'top_nav', 1),
-(419, 347, 12, '', '', 'theme.floxim.phototeam:footer_menu', '', 'footer_menu', 1),
-(431, 359, 12, '', '', 'theme.floxim.phototeam:one_column', '', '', 2),
+(417, 345, 12, '', '', 'theme.floxim.phototeam:one_column', '{"phone":"8 (800) 123 63 45","logo":"","two_column_header":"\\n                Yes, we can!","one_column_header":"\\n                Our news","logo_name":"Tab Test","icon_408":"\\/floxim_files\\/content\\/18\\/visual\\/icon_login_active.png","icon_409":"\\/floxim_files\\/content\\/18\\/visual\\/icon_login_on.png","email":"info@phototeam.loc"}', '', 1),
 (432, 360, 12, '', '', 'theme.floxim.phototeam:breadcrumbs', '', 'breadcrumbs-area', 1),
-(433, 361, 12, '', '', 'theme.floxim.phototeam:featured_list', '{"image":"\\/floxim_files\\/content\\/HansIsland_0.png","image_2652":"\\/floxim_files\\/content\\/5_ski_4_0.JPG","four_items":"1","image_id":"\\/floxim_files\\/content\\/7394_0.jpg","image_2654":"\\/floxim_files\\/content\\/5_people_cover.jpg","image_2658":"\\/floxim_files\\/content\\/5_nature_5_0.jpg","image_2744":"\\/floxim_files\\/content\\/6_events_cover.jpg","photo_2894":"\\/floxim_files\\/content\\/6_Carnival_of_miners_13_0.jpg","photo_2652":"\\/floxim_files\\/content\\/18\\/visual\\/5_ski_4_0.JPG","photo_2654":"\\/floxim_files\\/content\\/18\\/visual\\/5_people_cover.jpg","photo_2658":"\\/floxim_files\\/content\\/18\\/visual\\/5_nature_5_0.jpg","photo_2744":"\\/floxim_files\\/content\\/18\\/visual\\/6_events_cover.jpg"}', 'main_column', 3),
-(434, 362, 12, '', '', 'theme.floxim.phototeam:banner', '{"banner_header_2652":"<p>\\n\\t Special conditions\\n<\\/p>","banner_text_2652":"<p>\\n\\tFor sport series\\n<\\/p>","banner_image_2652":"\\/floxim_files\\/content\\/18\\/visual\\/5_swim_0.jpg"}', 'main_column', 1),
-(436, 364, 12, '', '', 'theme.floxim.phototeam:featured_list', '{"four_items":"1","photo_2972":"\\/floxim_files\\/content\\/forest-4.jpg"}', 'main_column', 4),
-(439, 367, 12, '', '', 'theme.floxim.phototeam:product_record', '', 'main_column', 5),
-(441, 369, 12, '', '', 'theme.floxim.phototeam:banner', '{"banner_header_2660":"<p>\\n\\t  Greate ship\\n<\\/p>\\n<br>","banner_text_2660":"<p>\\n\\tIt''s really <strong>cool<\\/strong>\\n<\\/p>","go_2660":"Go","banner_image_2740":"\\/floxim_files\\/content\\/3b_6_0.jpg","banner_text_2740":"","banner_header_2740":""}', 'grid_content_410', 2),
-(442, 370, 12, '', '{"header":"Best ships"}', 'theme.floxim.phototeam:featured_list', '{"four_items":"1","photo_2743":""}', 'grid_content_410', 3),
-(444, 372, 12, '', '', 'theme.floxim.phototeam:person_list', '{"facebook_2671":"","vk_2671":"","li_2671":"","twitter_2671":""}', 'main_column', 6),
-(446, 374, 12, '', '', 'theme.floxim.phototeam:vacancies_list', '{"more_info_2677":"More info about the vacancy","more_info_2771":"more info for supermen","more_info_2791":"More info"}', 'main_column', 7),
-(451, 379, 12, '', '', 'theme.floxim.phototeam:news_mixed', '{"show_more":"0","show_anounce":"1","count_featured":"2"}', 'main_column', 8),
-(454, 382, 12, '', '', 'theme.floxim.phototeam:full_width', '', '', 8),
-(457, 385, 12, '', '', 'theme.floxim.phototeam:full_screen_menu', '{"bg_2688":"\\/floxim_files\\/content\\/HansIsland_8.png","bg_":"","bg_2690":"\\/floxim_files\\/content\\/1280px-Sortie_de_l_op_ra_en_l_an_2000-2_1_0.jpg","header_2688":"","caption_2688":"<p>\\n\\t The carnival of Potosi\\n<\\/p>\\n<p>\\n\\t<strong>in Bolivia<\\/strong>\\n<\\/p>","header_2690":"","header_2639":"<p>\\n\\t Our projects\\n<\\/p>\\n<p>\\n\\tare cool\\n<\\/p>","caption_2639":"Ain''t they?","caption_2690":"The age old sport\\n<br>","bg_2639":"\\/floxim_files\\/content\\/18\\/visual\\/2a_2.JPG","caption_2751":"Pagan fest\\n<br>","caption_2757":"<p>\\n\\ta.k.a. Pascua Toro\\n<\\/p>","bg_2761":"","caption_2969":"\\u041a\\u043b\\u0435\\u0432\\u0430\\u044f \\u043d\\u0430\\u0434\\u043f\\u0438\\u0441\\u044c"}', 'main_column', 13),
-(458, 386, 12, 'theme.floxim.phototeam:block_titled', '{"header":"About the project"}', 'theme.floxim.phototeam:project_record', '', 'main_column', 14),
-(460, 388, 12, '', '', 'theme.floxim.phototeam:side_menu', '{"unstylized":"0"}', 'left_column', 1),
-(461, 389, 12, 'theme.floxim.phototeam:block_titled', '{"header":"Images"}', 'theme.floxim.phototeam:slider', '{"thumbnails":"0"}', 'main_column', 15),
-(462, 390, 12, '', '', 'theme.floxim.phototeam:one_column', '', '', 9),
-(463, 391, 12, '', '', 'theme.floxim.phototeam:banner', '{"banner_header_2656":"<p>\\n\\tNeed job?\\n<\\/p>","banner_text_2656":"<p>\\n\\tLook at our vacancies<br>\\n<\\/p>","banner_image_2656":"\\/floxim_files\\/content\\/18\\/visual\\/5_open_air_2_0.jpg"}', 'main_column', 9),
-(464, 392, 12, 'theme.floxim.phototeam:gray_block', '{"header":"Latest news"}', 'theme.floxim.phototeam:featured_news_list', '{"more_news_url":"\\/News","show_more":"1","show_anounce":"1","more_news":"all news"}', 'main_column', 37),
-(469, 397, 12, '', '', 'theme.floxim.phototeam:text', '{"blue_2701":"1","blue_2700":"0","hilight_2701":"0","hilight_2767":"0","hilight_":"0","hilight_2869":"0","hilight_2870":"1"}', 'main_column', 11),
-(470, 398, 12, '', '', 'theme.floxim.phototeam:news_record', '', 'main_column', 12),
 (471, 399, 12, '', '', 'theme.floxim.phototeam:index', '', '', 11),
 (472, 400, 12, '', '', 'theme.floxim.phototeam:side_menu', '{"unstylized":"0","blyat":"\\u0412\\u043e\\u0442 \\u043e\\u0445\\u0443\\u0435\\u043d\\u043d\\u043e\\u0435 \\u043c\\u0435\\u043d\\u044e:","ept":"\\u0411\\u043b\\u044f,","ept_2652":"\\u0412\\u0440\\u0435\\u0434\\u043d\\u044b\\u0439","ept_2654":"\\u041a\\u043b\\u0435\\u0432\\u044b\\u0439","ept_2658":"\\u041a\\u0440\\u0430\\u0441\\u0438\\u0432\\u044b\\u0435"}', 'grid_sidebar_410', 2),
-(476, 404, 12, '', '{"header":"About us"}', 'theme.floxim.phototeam:side_menu', '{"unstylized":"0"}', 'left_column', 2),
-(575, 408, 12, '', '', 'theme.floxim.phototeam:auth_form', '{"label_email":"E-mail                        ","label_password":"Password","label_remember":"Remember me","label_submit":"Log in","label_auth_form_submit":""}', 'icons_area', 1),
-(576, 409, 12, '', '', 'user:greet', '', 'icons_area', 2),
-(577, 410, 12, 'theme.floxim.phototeam:titled_block', '{"header":"We shoot everything and everywhere around the world"}', 'theme.floxim.phototeam:two_columns_grid', '', 'main_column', 24),
-(578, 411, 12, '', '', 'theme.floxim.phototeam:full_screen_menu', '{"header_2635":"<p>\\n\\tTeam of professional\\n<\\/p>\\n<p>\\nphotographers!\\n<\\/p>","caption_2635":"We come in any sizes and shapes ready to<br>\\n\\tshoot any series you like!\\n<br>","bg_2635":"\\/floxim_files\\/content\\/18\\/visual\\/6_pascua_toro_19_0.JPG"}', 'main_column', 16),
-(579, 412, 12, '', '', 'page:neighbours', '', 'main_column', 27),
-(580, 413, 12, '', '', 'page:neighbours', '', 'main_column', 28),
-(581, 414, 12, '', '', 'page:neighbours', '', 'main_column', 34),
-(583, 416, 12, '', '', 'page:neighbours', '', 'main_column', 29),
-(585, 418, 12, '', '', 'theme.floxim.phototeam:person_record', '', 'main_column', 30),
-(586, 419, 12, '', '', 'page:neighbours', '', 'main_column', 31),
-(588, 376, 12, '', '', 'theme.floxim.phototeam:vacancy_record', '', 'main_column', 32),
-(590, 422, 12, '', '', 'floxim.corporate.map:static_google_map', '{"map_width":"940","map_height":"340","map_zoom":"14"}', 'main_column', 33),
-(591, 423, 12, '', '', 'theme.floxim.phototeam:one_column', '', '', 12),
 (599, 431, 12, '', '', 'text:list', '', 'sidebar_430', 1),
-(603, 435, 12, 'theme.floxim.phototeam:titled_block', '{"header":"Meet the super team"}', 'theme.floxim.phototeam:featured_list', '{"four_items":"1","photo_2866":"\\/floxim_files\\/content\\/fuckingform.png","photo_3061":"\\/floxim_files\\/content\\/6_kupala_17_0.JPG"}', 'main_column', 38),
-(604, 436, 12, '', '', 'theme.floxim.phototeam:featured_news_list', '', 'main_column', 35),
-(605, 437, 12, 'theme.floxim.phototeam:col_block', '', 'floxim.nav.tag:tag_list', '', 'left_column', 3),
-(607, 439, 12, '', '', 'theme.floxim.phototeam:featured_news_list', '', 'main_column', 36),
-(608, 440, 12, 'theme.floxim.phototeam:block_titled', '{"header":"Caution!"}', 'theme.floxim.phototeam:text', '{"hilight_2801":"1","hilight_":"0","hilight_2916":"0"}', 'main_column', 26),
+(607, 439, 12, '', '', 'theme.floxim.phototeam:featured_news_list', '', 'main_column', 1),
 (646, 480, 12, '', '', 'theme.floxim.phototeam:one_column', '', '', 14),
-(650, 497, 12, 'theme.floxim.phototeam:gray_block', 'null', 'theme.floxim.phototeam:featured_news_list', '{"show_anounce":"0"}', 'main_column', 23);
+(651, 498, 12, '', 'null', 'theme.floxim.phototeam:main_menu', 'null', 'top_nav', 1),
+(652, 499, 12, 'theme.floxim.phototeam:titled_block', '{"header":"Tab data is loaded with AJAX"}', 'my.shop.product:nav_tabs', 'null', 'main_column', 2),
+(654, 501, 12, '', 'null', 'theme.floxim.phototeam:featured_list', 'null', 'main_column', 3),
+(655, 503, 12, '', 'null', 'theme.floxim.phototeam:featured_list', 'null', 'tab_data', 1);
 
 -- --------------------------------------------------------
 
@@ -1060,7 +724,7 @@ CREATE TABLE IF NOT EXISTS `fx_lang_string` (
   `lang_en` text,
   `lang_ru` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1122 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1140 ;
 
 --
 -- Дамп данных таблицы `fx_lang_string`
@@ -1598,7 +1262,25 @@ INSERT INTO `fx_lang_string` (`id`, `dict`, `string`, `lang_en`, `lang_ru`) VALU
 INSERT INTO `fx_lang_string` (`id`, `dict`, `string`, `lang_en`, `lang_ru`) VALUES
 (1119, 'system', 'Change theme', 'Change theme', NULL),
 (1120, 'system', 'View', 'View', NULL),
-(1121, 'system', 'Login after registration', 'Login after registration', NULL);
+(1121, 'system', 'Login after registration', 'Login after registration', NULL),
+(1122, 'controller_component', 'New block with %s', 'New block with %s', NULL),
+(1123, 'controller_component', '%s by filter', '%s by filter', NULL),
+(1124, 'controller_component', '%s selected', '%s selected', NULL),
+(1125, 'controller_component', 'Allow doubles', 'Allow doubles', NULL),
+(1126, 'floxim.main.user', 'Login form', 'Login form', NULL),
+(1127, 'floxim.main.user', 'After login', 'After login', NULL),
+(1128, 'floxim.main.user', 'Greet and logout widget', 'Greet and logout widget', NULL),
+(1129, 'floxim.main.user', 'Recover password form', 'Recover password form', NULL),
+(1130, 'floxim.main.user', 'Registration form', 'Registration form', NULL),
+(1131, 'system', 'Remember me', 'Remember me', NULL),
+(1132, 'system', 'Log in', 'Log in', NULL),
+(1133, 'controller_component', 'Neighbour %s', 'Neighbour %s', NULL),
+(1134, 'system', 'Selected entries', 'Selected entries', NULL),
+(1135, 'system', 'Infoblock', 'Infoblock', NULL),
+(1136, 'system', 'Section', 'Section', NULL),
+(1137, 'system', 'Design settings', 'Design settings', NULL),
+(1138, 'system', 'Is abstract?', 'Is abstract?', NULL),
+(1139, 'system', 'Delete this infoblock', 'Delete this infoblock', NULL);
 
 -- --------------------------------------------------------
 
@@ -1646,6 +1328,29 @@ INSERT INTO `fx_module` (`id`, `name`, `keyword`, `description`, `installed`, `i
 (1, 'FX_MODULE_AUTH', 'auth', 'FX_MODULE_AUTH_DESCRIPTION', 1, 1, 1),
 (3, 'FX_MODULE_FORUM', 'forum', 'FX_MODULE_FORUM_DESCRIPTION', 1, 1, 1),
 (4, 'FX_MODULE_FILEMANAGER', 'filemanager', 'FX_MODULE_FILEMANAGER_DESCRIPTION', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `fx_my_shop_product`
+--
+
+CREATE TABLE IF NOT EXISTS `fx_my_shop_product` (
+  `id` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `fx_my_shop_product`
+--
+
+INSERT INTO `fx_my_shop_product` (`id`) VALUES
+(3083),
+(3084),
+(3085),
+(3086),
+(3087),
+(3088);
 
 -- --------------------------------------------------------
 
@@ -1736,15 +1441,14 @@ CREATE TABLE IF NOT EXISTS `fx_session` (
   PRIMARY KEY (`id`),
   KEY `User_ID` (`user_id`),
   KEY `session_key` (`session_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=126 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=126 AUTO_INCREMENT=24 ;
 
 --
 -- Дамп данных таблицы `fx_session`
 --
 
 INSERT INTO `fx_session` (`id`, `session_key`, `user_id`, `site_id`, `start_time`, `last_activity_time`, `ip`, `remember`) VALUES
-(21, '0b0b1b42bc5c7d5de08bb53cbe565f99', 2367, 0, 1430903496, 1431619744, 2130706433, 0),
-(22, '55d1909526123f3536148c44bf689f65', 2367, 0, 1431713143, 1432139873, 2130706433, 0);
+(23, '71ee45ba782994921ade852361a4f077', 2367, 0, 1440598787, 1440669523, 2130706433, 0);
 
 -- --------------------------------------------------------
 
@@ -1781,8 +1485,7 @@ CREATE TABLE IF NOT EXISTS `fx_site` (
 --
 
 INSERT INTO `fx_site` (`id`, `parent_id`, `name`, `domain`, `layout_id`, `color`, `mirrors`, `priority`, `checked`, `index_page_id`, `error_page_id`, `created`, `last_updated`, `robots`, `disallow_indexing`, `type`, `language`, `offline_text`, `store_id`) VALUES
-(18, 0, 'The Photo Team', 'phototeam.loc', 12, 0, '', 4, 1, 2635, 2636, '2014-01-28 11:39:50', '2015-04-17 06:55:40', '', 0, 'useful', 'en', '', ''),
-(19, 0, 'alt.phototeam.loc', 'alt.phototeam.loc', 12, 0, '', 5, 1, 3062, 3063, '2015-04-17 11:27:14', '2015-04-17 15:27:15', NULL, 0, 'useful', 'en', NULL, NULL);
+(18, 0, 'The Photo Team', 'wolarek.loc', 12, 0, '', 4, 1, 2635, 2636, '2014-01-28 11:39:50', '2015-08-26 14:19:39', '', 0, 'useful', 'en', '', '');
 
 -- --------------------------------------------------------
 
@@ -1799,7 +1502,7 @@ CREATE TABLE IF NOT EXISTS `fx_url_alias` (
   PRIMARY KEY (`id`),
   KEY `url` (`url`),
   KEY `page_id` (`page_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=199 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=208 ;
 
 --
 -- Дамп данных таблицы `fx_url_alias`
@@ -1808,54 +1511,17 @@ CREATE TABLE IF NOT EXISTS `fx_url_alias` (
 INSERT INTO `fx_url_alias` (`id`, `url`, `site_id`, `page_id`, `is_original`) VALUES
 (1, '/', 18, 2635, 1),
 (2, '/404', 18, 2636, 1),
-(3, '/About', 18, 2640, 1),
-(4, '/Athletics', 18, 2739, 1),
-(5, '/Birthday-parties', 18, 2745, 1),
-(6, '/Bull-Easter', 18, 2757, 1),
-(7, '/Carnival-of-miners', 18, 2688, 1),
-(8, '/Catalog', 18, 2638, 1),
-(9, '/Cities', 18, 2742, 1),
-(10, '/Cockfights', 18, 2690, 1),
-(11, '/Contacts', 18, 2641, 1),
-(13, '/Corporate-events', 18, 2746, 1),
-(14, '/Delivery-person', 18, 2737, 1),
-(15, '/Events', 18, 2744, 1),
-(16, '/Football-photo-report', 18, 2660, 1),
-(17, '/Free-ride-proof-pics', 18, 2680, 1),
-(18, '/Ken-Cold', 18, 2671, 1),
-(19, '/Kupala-Night', 18, 2751, 1),
-(20, '/Landscapes', 18, 2658, 1),
-(21, '/Leila-Stoparsson', 18, 2673, 1),
-(22, '/Maker-up', 18, 2677, 1),
-(23, '/Moscow-Athletics-Championship', 18, 2681, 1),
-(24, '/Moscow-Streetshot-Contest', 18, 2679, 1),
-(25, '/Nature', 18, 2743, 1),
-(26, '/News', 18, 2657, 1),
-(27, '/Nika-Lightman', 18, 2675, 1),
-(28, '/Passport-photos', 18, 2741, 1),
-(29, '/people-photo', 18, 2654, 1),
-(30, '/Portrait', 18, 2740, 1),
-(31, '/Projects', 18, 2639, 1),
-(32, '/Redecoration-in-our-new-studio', 18, 2678, 1),
-(33, '/Skiing', 18, 2661, 1),
-(34, '/Sonya-Zoomer', 18, 2735, 1),
-(36, '/Sport-series', 18, 2652, 1),
-(38, '/Swimming', 18, 2662, 1),
-(39, '/Team', 18, 2655, 1),
-(40, '/Vacancies', 18, 2656, 1),
 (42, '/woo', 18, 2776, 1),
 (43, '/Athletics-2', 18, 2776, 0),
-(44, '/tennis', 18, 2779, 1),
-(45, '/moscow', 18, 2781, 1),
-(46, '/contest', 18, 2783, 1),
-(47, '/street-series', 18, 2787, 1),
-(48, '/syberia', 18, 2789, 1),
-(49, '/free-ride', 18, 2791, 1),
-(50, '/russia', 18, 2793, 1),
-(51, '/studio', 18, 2796, 1),
-(52, '/life', 18, 2798, 1),
-(194, '/', 19, 3062, 1),
-(195, '/404', 19, 3063, 1);
+(199, '/Turntables', 18, 3077, 1),
+(200, '/Music-instruments', 18, 3078, 1),
+(201, '/Accessories', 18, 3079, 1),
+(202, '/Test-one', 18, 3083, 1),
+(203, '/Test-two', 18, 3084, 1),
+(204, '/Test-also', 18, 3085, 1),
+(205, '/Guitar', 18, 3086, 1),
+(206, '/Banjo', 18, 3087, 1),
+(207, '/Tuner', 18, 3088, 1);
 
 -- --------------------------------------------------------
 

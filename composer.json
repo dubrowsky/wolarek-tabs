@@ -9,6 +9,7 @@
         "floxim/module-layout" : "*",
         "floxim/module-media" : "*",
         "floxim/module-shop" : "*",
+        "floxim/module-ui" : "*",
         "floxim/theme-phototeam" : "*"
     }
 }
